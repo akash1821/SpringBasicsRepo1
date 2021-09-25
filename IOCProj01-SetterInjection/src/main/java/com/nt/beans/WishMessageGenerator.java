@@ -5,10 +5,12 @@ import java.util.Date;
 public class WishMessageGenerator {
 	private Date date;
 	
+	//setter method for assigning or injecting the dependent class object to target class object. 
 	public void setDate(Date date) {
 		this.date=date;
 	}
 	
+	//method having b.logic
 	public String generateMessage(String user) {
 		//get current hour of the day
 		int hour=date.getHours()+1;
