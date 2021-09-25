@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="dt1" class="java.util.Date">
+		<property name="year" value="110" />
+		<property name="month" value="5" />
+		<property name="date" value="18" />
+	</bean>
+
+	<!-- configure dependent class -->
+	<bean id="dtdc" class="com.nt.beans.DTDCCourierService" />
+	<bean id="dt" class="java.util.Date" />
+
+	<!-- configure target class -->
+	<bean id="fkrt" class="com.nt.beans.Flipkart">
+		<constructor-arg name="dtdc" ref="dtdc" />
+		<constructor-arg name="date" ref="dt" />
+		<property name="date" ref="dt1" />
+	</bean>
+
+</beans>
