@@ -8,6 +8,7 @@ public final class Flipkart {
 
 	// setMethod to inject dependent class to out target class
 	public void setCourier(ICourier courier) {
+		System.out.println("Flipkart.setCourier() executed");
 		this.courier = courier;
 	}
 
