@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<bean id="emp" class="com.nt.comps.Employee">
+		<constructor-arg name="eid" value="101" />
+		<constructor-arg name="ename" value="akash" />
+		<constructor-arg name="phoneNum" value="7774949414" />
+		<constructor-arg name="sal" value="25000" />
+	</bean>
+	
+	<bean id="std" class="com.nt.comps.Student">
+		<property name="stdId" value="121" />
+		<property name="stdName" value="akash" />
+		<property name="stdClgName" value="g.s.college" />
+	</bean>
+	
+	<bean id="cust" class="com.nt.comps.Customer">
+		<constructor-arg name="custNo" value="201"/>
+		<constructor-arg name="custName" value="akash"/>
+		<constructor-arg name="billAmt" value="31000"/>
+		
+		<property name="custAddrs" value="khamgaon"/>
+		<property name="phoneNum" value="774949414"/>
+	</bean>
+</beans>
