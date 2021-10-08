@@ -7,17 +7,21 @@ import com.nt.dto.EmployeeDTO;
 public class EmployeeServiceMgmtImpl implements IEmployeeService {
 
 	// HAS-A relation to inject dao to service layer
-	private IEmployeeDAO dao;
-
-	public EmployeeServiceMgmtImpl(IEmployeeDAO dao) {
+	private IEmployeeDAO dao1;
+	private IEmployeeDAO dao2;
+	
+	public EmployeeServiceMgmtImpl(IEmployeeDAO dao1,IEmployeeDAO dao2) {
 		System.out.println("EmployeeServiceMgmtImpl :: 1-param constructor");
-		this.dao = dao;
+		this.dao1 = dao1;
+		this.dao2 = dao2;
 	}
+	
 
 	@Override
 	public String saveEmployee(EmployeeDTO dto) throws Exception {
 		System.out.println("EmployeeServiceMgmtImpl :: saveEmployee()");
 
+		int count = 0;
 		// generate b.logic (gross salary and net salary based on basic salary)
 		float grossSalary = dto.getBasicSalary() + dto.getBasicSalary() * 0.4f;
 		float netSalary = grossSalary - dto.getBasicSalary() * 0.2f;
@@ -31,8 +35,10 @@ public class EmployeeServiceMgmtImpl implements IEmployeeService {
 		bo.setNetSalary(netSalary);
 		
 		//use dao
-		int count = dao.saveEmployee(bo);
+		count = dao1.saveEmployee(bo);
+		count = dao2.saveEmployee(bo);
 		return count==0?"Employee Registration Failed with netSalary : "+netSalary : "Employee Registration Succeeded with netSalary : "+netSalary;
+	
 	}
 
 }

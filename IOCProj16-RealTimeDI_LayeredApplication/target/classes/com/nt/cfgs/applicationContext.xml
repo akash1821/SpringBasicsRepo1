@@ -3,22 +3,35 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
 
-	<!-- datasource cfgs -->
-	<bean id="drds" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName"	value="oracle.jdbc.driver.OracleDriver" />
-		<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl" />
-		<property name="username" value="scott" />
-		<property name="password" value="sherkhan" />
+	<!-- oracle datasource cfgs -->
+	<bean id="drdsOra" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url"  value="jdbc:oracle:thin:@localhost:1521:orcl" />
+		<property name="username"  value="scott" />
+		<property name="password"  value="sherkhan" />
+	</bean>
+
+<!-- 	MySql datasource cfgs -->
+	<bean id="drdsMySql" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql:///ntspbms615db" />
+		<property name="username" value="root" />
+		<property name="password" value="root" />
 	</bean>
 	
 	<!-- dao class cfgs -->
-	<bean id="empDao" class="com.nt.dao.EmployeeDAOImpl">
-		<constructor-arg name="ds" ref="drds" />
+	<bean id="empOraDao" class="com.nt.dao.EmployeeOracleDAOImpl">
+		<constructor-arg name="ds" ref="drdsOra" />
+	</bean>
+	
+	<bean id="empMySqlDao" class="com.nt.dao.EmployeeMySqlDAOImpl">
+		<constructor-arg name="ds" ref="drdsMySql" />
 	</bean>
 	
 	<!-- service class cfgs -->
 	<bean id="empService" class="com.nt.service.EmployeeServiceMgmtImpl">
-		<constructor-arg name="dao" ref="empDao" />
+		<constructor-arg name="dao1" ref="empOraDao" />
+		<constructor-arg name="dao2" ref="empMySqlDao" />
 	</bean>
 	
 	<!-- controller class cfgs -->

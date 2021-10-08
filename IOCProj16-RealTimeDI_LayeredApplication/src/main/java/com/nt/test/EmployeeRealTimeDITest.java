@@ -21,9 +21,9 @@ public class EmployeeRealTimeDITest {
 			Scanner sc = new Scanner(System.in);
 			EmployeeVO vo = new EmployeeVO();
 			System.out.println("Enter Employee Name :: ");
-			vo.setEname(sc.next());
+			vo.setEname(sc.nextLine());
 			System.out.println("Enter Employee Desg :: ");
-			vo.setDesg(sc.next());
+			vo.setDesg(sc.nextLine());
 			System.out.println("Enter Employee BasicSalary  :: ");
 			vo.setBasicSalary(sc.next());
 
