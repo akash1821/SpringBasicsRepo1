@@ -4,7 +4,7 @@ import com.nt.dto.EmployeeDTO;
 import com.nt.service.IEmployeeService;
 import com.nt.vo.EmployeeVO;
 
-public class MainController {
+public final class MainController {
 	// HAS-A relation to inject service to controller
 	private IEmployeeService service;
 

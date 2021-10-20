@@ -8,7 +8,7 @@ import javax.sql.DataSource;
 
 import com.nt.bo.EmployeeBO;
 
-public class EmployeeMySqlDAOImpl implements IEmployeeDAO {
+public final class EmployeeMySqlDAOImpl implements IEmployeeDAO {
 	private static final String INSERT_EMPLOYEE_QUERY = "INSERT INTO REALTMEDI_SPRING_EMPLOYEE(ENAME,DESG,BASICSALARY,GROSSSALARY,NETSALARY) VALUES(?,?,?,?,?)";
 	// HAS-A relation to inject datasource
 	private DataSource ds;

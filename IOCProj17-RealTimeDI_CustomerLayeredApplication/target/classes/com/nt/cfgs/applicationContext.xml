@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+
+	<!-- datasoruce cfgs -->
+	<bean id="drdsOra" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl" />
+		<property name="username" value="scott" />
+		<property name="password" value="sherkhan" />		
+	</bean>
+	
+	<!-- 	dao cfgs -->
+	<bean id="custOraDao" class="com.nt.dao.CustomerOracleDAO">
+		<constructor-arg name="ds" ref="drdsOra" />
+	</bean>
+	
+	<!-- 	service cfgs -->
+	<bean id="custService" class="com.nt.service.CustomerServiceImpl">
+		<constructor-arg name="dao" ref="custOraDao" />
+	</bean>
+	
+	<!-- 	controller cfgs -->
+	<bean id="controller" class="com.nt.controller.MainController">
+		<constructor-arg name="service" ref="custService" />
+	</bean>
+</beans>

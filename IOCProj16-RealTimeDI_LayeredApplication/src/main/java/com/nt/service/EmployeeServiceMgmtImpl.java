@@ -4,7 +4,7 @@ import com.nt.bo.EmployeeBO;
 import com.nt.dao.IEmployeeDAO;
 import com.nt.dto.EmployeeDTO;
 
-public class EmployeeServiceMgmtImpl implements IEmployeeService {
+public final class EmployeeServiceMgmtImpl implements IEmployeeService {
 
 	// HAS-A relation to inject dao to service layer
 	private IEmployeeDAO dao1;

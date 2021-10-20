@@ -8,7 +8,7 @@ import javax.sql.DataSource;
 
 import com.nt.bo.EmployeeBO;
 
-public class EmployeeOracleDAOImpl implements IEmployeeDAO {
+public final  class EmployeeOracleDAOImpl implements IEmployeeDAO {
 	private static final String INSERT_EMPLOYEE_QUERY = "INSERT INTO REALTMEDI_SPRING_EMPLOYEE VALUES(SP_REALTIMEDI_ENO_SEQ.NEXTVAL,?,?,?,?,?)";
 	// HAS-A relation to inject datasource
 	private DataSource ds;
